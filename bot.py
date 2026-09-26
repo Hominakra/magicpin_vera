@@ -23,6 +23,11 @@ def _now_iso() -> str:
     return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
+@app.get("/")
+async def root():
+    return {"message": "Vera Bot is running!"}
+
+
 @app.get("/v1/healthz")
 async def healthz():
     return {
